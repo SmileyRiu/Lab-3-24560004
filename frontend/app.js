@@ -1,4 +1,4 @@
-const api = 'http://localhost:5000/api/tasks';
+const api = 'https://lab-3-24560004.onrender.com/api/tasks';
 console.log("✅ app.js is loaded!");
 
 async function loadTasks() {
