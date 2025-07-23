@@ -1,5 +1,5 @@
 const api = 'https://lab-3-24560004.onrender.com/api/tasks';
-console.log("✅ app.js is loaded!");
+console.log("app.js is loaded!");
 
 async function loadTasks() {
   const res = await fetch(api);
@@ -34,6 +34,12 @@ async function addTask() {
   input.value = '';
   loadTasks();
 }
+
+document.getElementById('taskInput').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') {
+    addTask();
+  }
+});
 
 async function toggleTask(id, completed) {
   await fetch(`${api}/${id}`, {
