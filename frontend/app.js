@@ -35,12 +35,6 @@ async function addTask() {
   loadTasks();
 }
 
-document.getElementById('taskInput').addEventListener('keydown', function (e) {
-  if (e.key === 'Enter') {
-    addTask();
-  }
-});
-
 async function toggleTask(id, completed) {
   await fetch(`${api}/${id}`, {
     method: 'PUT',
@@ -56,3 +50,13 @@ async function deleteTask(id) {
 }
 
 loadTasks();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('taskInput');
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      addTask();
+    }
+  });
+});
